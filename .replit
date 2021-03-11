@@ -1,0 +1,2 @@
+run="install -d build && cd build && cmake .. && VERBOSE=1 make && ./main"
+language="c++"
