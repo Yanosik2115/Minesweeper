@@ -13,20 +13,12 @@ class MinesweeperBoard
   Field board [100][100];
   int width;
   int height;
-
-  void setFrame(int width,int height) //nie jestem pewien czy to tak powinno być 
-  {
-    std::cout<<"Insert width & height";
-
-    std::cin >> width >> height; 
-    
-  };
   
 public:
   
   MinesweeperBoard();
-  
-  void debug_display() const;
+  int setFrame();
+  void debug_display(); //dodac const
 };
 
 //MinesweeperBoard::MinesweeperBoard(int width, int height) //pomocniczy konstruktor gdy użytkownik nie wprowadzi wielkości planszy
@@ -47,22 +39,26 @@ MinesweeperBoard::MinesweeperBoard()
       }
     }
 
+  board[0][0].hasMine = true;
+  board[1][1].isRevealed = true;
+  board[2][0].hasMine = true;
+  board[2][0].hasFlag = true;
 }
 
-void debug_display(int width, int height)
+void MinesweeperBoard::debug_display() // dodac const
 {
-  Field a;
+  Field board[100][100];
 
   for(int i = 0; i<height; i++)
     {
       for(int j = 0; j<width; j++)
       {
         std::cout << "[";
-        if(a.hasMine) std::cout << "M.";
+        if(board[i][j].hasMine) std::cout << "M.";
         else std::cout << ".";
-        if(a.isRevealed) std::cout << "o.";
+        if(board[i][j].isRevealed) std::cout << "o.";
         else std::cout << ".";
-        if(a.hasFlag) std::cout << "f";
+        if(board[i][j].hasFlag) std::cout << "f";
         else std::cout << ".";
         std::cout << "]";
       }
@@ -70,13 +66,24 @@ void debug_display(int width, int height)
     }
 }
 
+int MinesweeperBoard::setFrame() //nie jestem pewien czy to tak powinno być 
+  {
+    std::cout<<"Insert width & height: ";
+
+    std::cin >> width >> height; 
+    
+    return width, height;
+  };
 
 int main() 
 {
   Field field;
+
   MinesweeperBoard mines;
 
   std::cout << "Łukasz Waszczak, 259625\n";
+  
+  mines.setFrame();
 
   mines.debug_display();
 
