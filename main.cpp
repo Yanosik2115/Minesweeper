@@ -18,7 +18,7 @@ public:
   
   MinesweeperBoard();
   int setFrame();
-  void debug_display(); //dodac const
+  void debug_display()const; //dodac const
 };
 
 //MinesweeperBoard::MinesweeperBoard(int width, int height) //pomocniczy konstruktor gdy użytkownik nie wprowadzi wielkości planszy
@@ -33,7 +33,7 @@ MinesweeperBoard::MinesweeperBoard()
     {
       for(int j = 0; j<width; j++)
       {
-        board[i][j].hasMine = false;
+        board[i][j].hasMine = true;
         board[i][j].hasFlag = false;
         board[i][j].isRevealed = false;
       }
@@ -45,7 +45,7 @@ MinesweeperBoard::MinesweeperBoard()
   board[2][0].hasFlag = true;
 }
 
-void MinesweeperBoard::debug_display() // dodac const
+void MinesweeperBoard::debug_display()const  // dodac const
 {
   Field board[100][100];
 
