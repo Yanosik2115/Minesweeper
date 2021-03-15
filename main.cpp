@@ -18,7 +18,7 @@ public:
   
   MinesweeperBoard();
   int setFrame();
-  void debug_display()const; //dodac const
+  void debug_display()const;
 };
 
 //MinesweeperBoard::MinesweeperBoard(int width, int height) //pomocniczy konstruktor gdy użytkownik nie wprowadzi wielkości planszy
@@ -45,18 +45,16 @@ MinesweeperBoard::MinesweeperBoard()
   board[2][0].hasFlag = true;
 }
 
-void MinesweeperBoard::debug_display()const  // dodac const
+void MinesweeperBoard::debug_display()const  
 {
-  Field board[100][100];
-
   for(int i = 0; i<height; i++)
     {
       for(int j = 0; j<width; j++)
       {
         std::cout << "[";
-        if(board[i][j].hasMine) std::cout << "M.";
+        if(board[i][j].hasMine) std::cout << "M";
         else std::cout << ".";
-        if(board[i][j].isRevealed) std::cout << "o.";
+        if(board[i][j].isRevealed) std::cout << "o";
         else std::cout << ".";
         if(board[i][j].hasFlag) std::cout << "f";
         else std::cout << ".";
