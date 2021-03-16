@@ -32,7 +32,7 @@ public:
 MinesweeperBoard::MinesweeperBoard()  
 {
 
-    for(int column = 0; column<height; column++) //height i width błędy
+    for(int column = 0; column<height; column++) //height i width błędy ale tylko w vscode
     {
       for(int row = 0; row<width; row++)
       {
@@ -67,19 +67,6 @@ void MinesweeperBoard::debug_display()const
       std::cout<<std::endl;
     }
 }
-/* Bezpieczna wersja 
-void MinesweeperBoard::setFrame(int * const &pWidth, int * const &pHeight) //nie jestem pewien czy to tak powinno być 
-  { 
-    int rWidth, rHeight;
-
-    std::cout<<"Insert width & height: ";
-
-    std::cin >> rWidth >> rHeight; 
-
-    *pWidth = rWidth;
-    *pHeight = rHeight;
-  };
-*/
 
 void MinesweeperBoard::setFrame(int *pWidth, int *pHeight) //jakimś cudem działa 
   { 
