@@ -17,9 +17,10 @@ class MinesweeperBoard
 public:
   
   MinesweeperBoard();
-  int retWidth, retHeight;
+  int *pWidth = &width; 
+  int *pHeight = &height;
 
-  void setFrame(int * const &retWidth, int * const &retHeight);
+  void setFrame(int *pWidth, int *pHeight);
   void debug_display()const;
 };
 
@@ -28,10 +29,10 @@ public:
 //  if()
 //}
 
-MinesweeperBoard::MinesweeperBoard()
+MinesweeperBoard::MinesweeperBoard()  
 {
 
-    for(int column = 0; column<height; column++) //do zmiany nazwa i, j
+    for(int column = 0; column<height; column++) //height i width błędy
     {
       for(int row = 0; row<width; row++)
       {
@@ -66,12 +67,26 @@ void MinesweeperBoard::debug_display()const
       std::cout<<std::endl;
     }
 }
-
-void MinesweeperBoard::setFrame(int * const &retWidth, int * const &retHeight) //nie jestem pewien czy to tak powinno być 
+/* Bezpieczna wersja 
+void MinesweeperBoard::setFrame(int * const &pWidth, int * const &pHeight) //nie jestem pewien czy to tak powinno być 
   { 
+    int rWidth, rHeight;
+
     std::cout<<"Insert width & height: ";
 
-    std::cin >> &retWidth >> &retHeight; 
+    std::cin >> rWidth >> rHeight; 
+
+    *pWidth = rWidth;
+    *pHeight = rHeight;
+  };
+*/
+
+void MinesweeperBoard::setFrame(int *pWidth, int *pHeight) //jakimś cudem działa 
+  { 
+    
+    std::cout<<"Insert width & height: ";
+
+    std::cin >> *pWidth >> *pHeight; 
 
   };
 
@@ -80,8 +95,8 @@ int main()
   MinesweeperBoard mines;
 
   std::cout << "Łukasz Waszczak, 259625\n";
-  
-  mines.setFrame(&mines.retWidth, &mines.retHeight);
+
+  mines.setFrame(mines.pWidth, mines.pHeight);
 
   mines.debug_display();
 
