@@ -28,14 +28,11 @@ class MinesweeperBoard
 {
 
   Field board[100][100];
-  int width = 5;
-  int height = 5;
+  int width;
+  int height;
 
 public:
   MinesweeperBoard(int width, int height, GameMode mode);
-  MinesweeperBoard();
-  //int *pWidth = &width;
-  //int *pHeight = &height;
 
   int getBoardWidth() const;
   int getBoardHeight() const;
@@ -47,66 +44,14 @@ public:
 
   void toggleFlag(int row, int col) const;
 
-  void setFrame();
-  void debug_display() const;
+  //void debug_display(int width, int height) const; zawiera się w konstruktorze
 };
 
-//MinesweeperBoard::MinesweeperBoard(int width, int height) //pomocniczy konstruktor gdy użytkownik nie wprowadzi wielkości planszy
-//{
-//  if()
-//}
-
-MinesweeperBoard::MinesweeperBoard()
+MinesweeperBoard::MinesweeperBoard(int width, int height, GameMode mode)
 {
-
-  for (int column = 0; column < height; column++) //height i width błędy ale tylko w vscode
-  {
-    for (int row = 0; row < width; row++)
-    {
-      board[column][row].hasMine = false;
-      board[column][row].hasFlag = false;
-      board[column][row].isRevealed = false;
-    }
-  }
-
-  //Do usuniecia później
-  //board[0][0].hasMine = true;
-  //board[1][1].isRevealed = true;
-  //board[2][0].hasMine = true;
-  //board[2][0].hasFlag = true;
-}
-
-void MinesweeperBoard::debug_display() const
-{
-  for (int column = 0; column < height; column++)
-  {
-    for (int row = 0; row < width; row++)
-    {
-      std::cout << "[";
-      if (board[column][row].hasMine)
-        std::cout << "M";
-      else
-        std::cout << ".";
-      if (board[column][row].isRevealed)
-        std::cout << "o";
-      else
-        std::cout << ".";
-      if (board[column][row].hasFlag)
-        std::cout << "f";
-      else
-        std::cout << ".";
-      std::cout << "]";
-    }
-    std::cout << std::endl;
-  }
-}
-
-void MinesweeperBoard::setFrame() //jakimś cudem działa (int *pWidth, int *pHeight)
-{
-  GameMode mode = HARD;
-
   srand(time(NULL));
 
+  //odpowiednia ilosc min
   switch (mode)
   {
   case 1:
@@ -172,18 +117,45 @@ void MinesweeperBoard::setFrame() //jakimś cudem działa (int *pWidth, int *pHe
   case 4:
     DEBUG;
 
-
-
     break;
   default:
 
     break;
   }
+  
+  //zerowanie flag i odkryc
+  for (int column = 0; column < height; column++) 
+  {
+    for (int row = 0; row < width; row++)
+    {
+      board[column][row].hasFlag = false;
+      board[column][row].isRevealed = false;
+    }
+  }
 
-  //std::cout<<"Insert width & height: ";
-
-  //std::cin >> *pWidth >> *pHeight;
-};
+  //wyswietlanie txt poprzednio debug_display
+  for (int column = 0; column < height; column++)
+  {
+    for (int row = 0; row < width; row++)
+    {
+      std::cout << "[";
+      if (board[column][row].hasMine)
+        std::cout << "M";
+      else
+        std::cout << ".";
+      if (board[column][row].isRevealed)
+        std::cout << "o";
+      else
+        std::cout << ".";
+      if (board[column][row].hasFlag)
+        std::cout << "f";
+      else
+        std::cout << ".";
+      std::cout << "]";
+    }
+    std::cout << std::endl;
+  }
+}
 
 int MinesweeperBoard::getBoardWidth() const
 {
@@ -216,13 +188,9 @@ void MinesweeperBoard::toggleFlag(int row, int col) const
 
 int main()
 {
-  MinesweeperBoard mines;
+  MinesweeperBoard board(10, 10, GameMode::NORMAL);
 
   std::cout << "Łukasz Waszczak, 259625\n";
-
-  mines.setFrame(); //(mines.pWidth. ,mines.pHeight)
-
-  mines.debug_display();
 }
 
 #endif
