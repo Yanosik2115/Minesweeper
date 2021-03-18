@@ -1,4 +1,5 @@
-#include <iostream> //test WSL
+#include "getMines.h"
+#include <iostream> 
 #include <time.h>
 
 #ifndef MINESBOARD_H__
@@ -31,7 +32,10 @@ class MinesweeperBoard
   int width;
   int height;
 
+  void getMines();
+
 public:
+
   MinesweeperBoard(int width, int height, GameMode mode);
 
   int getBoardWidth() const;
@@ -44,85 +48,12 @@ public:
 
   void toggleFlag(int row, int col) const;
 
-  //void debug_display(int width, int height) const; zawiera się w konstruktorze
+  void debug_display() const;
+  
 };
 
 MinesweeperBoard::MinesweeperBoard(int width, int height, GameMode mode)
 {
-  srand(time(NULL));
-
-  //odpowiednia ilosc min
-  switch (mode)
-  {
-  case 1:
-    EASY;
-
-    for (int column = 0; column < height; column++)
-    {
-      for (int row = 0; row < width; row++)
-      {
-        int minePropability = RAND_MAX * 0.1;
-        int num = rand();
-
-        if (num <= minePropability)
-        {
-          board[column][row].hasMine = 1;
-        }
-        else
-          board[column][row].hasMine = 0;
-      }
-    }
-
-    break;
-  case 2:
-    NORMAL;
-
-    for (int column = 0; column < height; column++)
-    {
-      for (int row = 0; row < width; row++)
-      {
-        int minePropability = RAND_MAX * 0.2;
-        int num = rand();
-
-        if (num <= minePropability)
-        {
-          board[column][row].hasMine = 1;
-        }
-        else
-          board[column][row].hasMine = 0;
-      }
-    }
-
-    break;
-  case 3:
-    HARD;
-
-    for (int column = 0; column < height; column++)
-    {
-      for (int row = 0; row < width; row++)
-      {
-        int minePropability = RAND_MAX * 0.3;
-        int num = rand();
-
-        if (num <= minePropability)
-        {
-          board[column][row].hasMine = 1;
-        }
-        else
-          board[column][row].hasMine = 0;
-      }
-    }
-
-    break;
-  case 4:
-    DEBUG;
-
-    break;
-  default:
-
-    break;
-  }
-  
   //zerowanie flag i odkryc
   for (int column = 0; column < height; column++) 
   {
@@ -132,9 +63,13 @@ MinesweeperBoard::MinesweeperBoard(int width, int height, GameMode mode)
       board[column][row].isRevealed = false;
     }
   }
+  
+}
 
-  //wyswietlanie txt poprzednio debug_display
-  for (int column = 0; column < height; column++)
+void MinesweeperBoard::debug_display() const
+{
+
+for (int column = 0; column < height; column++)
   {
     for (int row = 0; row < width; row++)
     {
@@ -155,6 +90,7 @@ MinesweeperBoard::MinesweeperBoard(int width, int height, GameMode mode)
     }
     std::cout << std::endl;
   }
+
 }
 
 int MinesweeperBoard::getBoardWidth() const
@@ -184,11 +120,14 @@ bool MinesweeperBoard::hasFlag(int row, int col) const
 
 void MinesweeperBoard::toggleFlag(int row, int col) const
 {
+
 }
 
 int main()
 {
   MinesweeperBoard board(10, 10, GameMode::NORMAL);
+
+  board.debug_display();
 
   std::cout << "Łukasz Waszczak, 259625\n";
 }
