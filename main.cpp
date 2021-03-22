@@ -7,12 +7,16 @@
 
 int main()
 {
-  MinesweeperBoard board(10, 10, GameMode::NORMAL);
+  MinesweeperBoard board(10, 10, GameMode::EASY);
 
-  board.getMines(GameMode::NORMAL);
+  board.getMines();
 
   board.debug_display();
 
+  board.getBoardWidth();
+  board.getBoardHeight(); 
+  board.getMineCount();
+  int countMines(int row, int col);
   std::cout << "Łukasz Waszczak, 259625\n";
 }
 

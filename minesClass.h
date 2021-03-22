@@ -30,25 +30,25 @@ class MinesweeperBoard
   Field board[100][100];
   int width;
   int height;
-  
+  int mines_on_field;
+
 public:
 
-  MinesweeperBoard(int width, int height, GameMode mode);
+  MinesweeperBoard(const int &_width, const  int &_height, GameMode mode);
 
-  /*int getBoardWidth() const;
+  int getBoardWidth() const;
   int getBoardHeight() const;
   int getMineCount() const;
 
   int countMines(int row, int col) const;
-
+  /*
   bool hasFlag(int row, int col) const;
 
   void toggleFlag(int row, int col) const;
  */
+  void getMines();
+
   void debug_display() const;
-  
-  void getMines(GameMode mode);
 };
 
 #endif
-
