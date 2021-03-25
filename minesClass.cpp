@@ -117,9 +117,59 @@ int MinesweeperBoard::countMines(int row, int col) const
   return num;
 }
 
-//bool MinesweeperBoard::hasFlag(int row, int col) const;
+bool MinesweeperBoard::hasFlag(int row, int col) const
+{
+  if(board[col][row].hasFlag == 1)
+  {
+    return 1;
+  }
+  else return 0;
+}
+void MinesweeperBoard::toggleFlag(int row, int col)
+{
+  if(board[col][row].isRevealed==0 && GameState::RUNNING)
+  {
+    board[col][row].hasFlag = 1;
+  }
+}
 
-//void MinesweeperBoard::toggleFlag(int row, int col) const;
+void MinesweeperBoard::revealField(int row, int col)
+{
+  if(board[col][row].hasFlag!=1 && GameState::RUNNING && board[col][row].isRevealed != 1 && board[row][col].hasMine ==0)
+  {
+    board[row][col].isRevealed = 1;
+  }
+  else if(board[col][row].hasFlag!=1 && GameState::RUNNING && board[col][row].isRevealed != 1 && board[row][col].hasMine ==1)
+  {
+    GameState::FINISHED_LOST;
+  }
+}
+
+GameState getGameState(GameState state) const
+{
+  switch (state)
+  {
+  case 1:
+      RUNNING;
+      {
+        return GameState::RUNNING;
+      }
+    
+    break;
+  case 2:
+    FINISHED_LOST;
+    {
+      return GameState::FINISHED_LOST;
+    }
+  case 3:
+    FINISHED_WIN;
+    {
+      return GameState::FINISHED_WIN;
+    }
+  default:
+    break;
+  }
+}
 
 void MinesweeperBoard::debug_display() const
 {
