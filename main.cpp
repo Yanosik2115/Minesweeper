@@ -3,8 +3,8 @@
 #include <iostream> 
 #include <time.h>
 
-//#ifndef MINESBOARD_H__
-//#define MINESBOARD_H__
+#ifndef MINESBOARD_H__
+#define MINESBOARD_H__
 
 int main()
 {
@@ -17,4 +17,4 @@ int main()
   std::cout << "Łukasz Waszczak, 259625\n";
 }
 
-//#endif
+#endif

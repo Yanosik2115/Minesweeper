@@ -1,7 +1,7 @@
 #include <iostream>
 
-#ifndef MINESBOARD_H__
-#define MINESBOARD_H__
+#ifndef MINESBOARDMS_H__
+#define MINESBOARDMS_H__
 
 enum GameMode
 {
@@ -36,7 +36,7 @@ public:
 
   MinesweeperBoard(const int &_width, const  int &_height, GameMode mode);
   GameState getGameState(GameState state) const;
-  
+
   int mines_on_field;
 
   int getBoardWidth() const;

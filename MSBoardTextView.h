@@ -10,13 +10,19 @@ struct MSStruct
 
 class MSBoardTextView
 {
+    int height;
+    int width;
     
-    
+    MinesweeperBoard& playerBoard;
+    MSBoardTextView& playerView;
+
+
 public:
     //MinesweeperBoard board;
-    MSBoardTextView::MSBoardTextView(MinesweeperBoard& board);
+    MSBoardTextView(MinesweeperBoard& board);
     
     void display();
+    ~MSBoardTextView();
 };
 
 #endif
