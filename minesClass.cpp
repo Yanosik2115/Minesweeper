@@ -133,15 +133,15 @@ void MinesweeperBoard::toggleFlag(int row, int col)
   }
 }
 
-void MinesweeperBoard::revealField(int row, int col)
+void MinesweeperBoard::revealField(int row, int col, GameState state)
 {
-  if(board[col][row].hasFlag!=1 && GameState::RUNNING && board[col][row].isRevealed != 1 && board[row][col].hasMine ==0)
+  if(board[col][row].hasFlag!=1 && state == RUNNING && board[col][row].isRevealed != 1 && board[row][col].hasMine ==0)
   {
     board[row][col].isRevealed = 1;
   }
-  else if(board[col][row].hasFlag!=1 && GameState::RUNNING && board[col][row].isRevealed != 1 && board[row][col].hasMine ==1)
+  else if(board[col][row].hasFlag!=1 && state == RUNNING && board[col][row].isRevealed != 1 && board[row][col].hasMine ==1)
   {
-    GameState::FINISHED_LOST;
+    state = FINISHED_LOST;
   }
 }
 
@@ -152,25 +152,32 @@ GameState getGameState(GameState state) const
   case 1:
       RUNNING;
       {
-        return GameState::RUNNING;
+        return state = RUNNING;
       }
     
     break;
   case 2:
     FINISHED_LOST;
     {
-      return GameState::FINISHED_LOST;
+      return state = FINISHED_LOST;
     }
   case 3:
     FINISHED_WIN;
     {
-      return GameState::FINISHED_WIN;
+      return state = FINISHED_WIN;
     }
   default:
     break;
   }
 }
 
+char MinesweeperBoard::getFieldInfo(int row, int col) const
+{
+  if(board[row][col].hasFlag == 1 board[row][col].isReveald == 0)
+  {
+    
+  }
+}
 void MinesweeperBoard::debug_display() const
 {
 

@@ -35,7 +35,7 @@ class MinesweeperBoard
 public:
 
   MinesweeperBoard(const int &_width, const  int &_height, GameMode mode);
-  GameState getGameState();
+  GameState getGameState(GameState state) const;
 
   int getBoardWidth() const;
   int getBoardHeight() const;
@@ -49,7 +49,9 @@ public:
  
   void getMines();
 
-  void revealField(int row, int col);
+  void revealField(int row, int col, GameState state);
+
+  char getFieldInfo(int row, int col) const;
 
   void debug_display() const;
 };
