@@ -30,16 +30,18 @@ class MinesweeperBoard
   Field board[100][100];
   int width;
   int height;
-  int mines_on_field;
+  
 
 public:
 
   MinesweeperBoard(const int &_width, const  int &_height, GameMode mode);
   GameState getGameState(GameState state) const;
+  
+  int mines_on_field;
 
   int getBoardWidth() const;
   int getBoardHeight() const;
-  int getMineCount() const;
+  int getMineCount();
 
   int countMines(int row, int col) const;
   
