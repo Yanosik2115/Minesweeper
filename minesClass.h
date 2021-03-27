@@ -2,7 +2,7 @@
 
 #ifndef MINESBOARDMS_H__
 #define MINESBOARDMS_H__
-
+ //test
 enum GameMode
 {
   DEBUG,

@@ -3,13 +3,13 @@
 #include <iostream> 
 #include <time.h>
 
-#ifndef MINESBOARD_H__
-#define MINESBOARD_H__
+#ifndef MINESBOARD_H__ //test
+#define MINESBOARD_H__ //test2
 
 int main()
 {
   MinesweeperBoard board(10, 10, GameMode::EASY);
-  MSBoardTextView view( board );
+  MSBoardTextView view( board ); //test2222
   GameState getGameState(GameState::RUNNING);
 
   board.debug_display();
