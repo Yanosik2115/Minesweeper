@@ -4,26 +4,32 @@
 #ifndef MINESBOARDTX_H__
 #define MINESBOARDTX_H__
 
-struct MSStruct
+/*struct MSStruct
 {
 
-};
+};*/
 
 class MSBoardTextView
 {
     int height;
     int width;
-    
-    MinesweeperBoard& playerBoard;
-    MSBoardTextView& playerView;
+
+    MinesweeperBoard playerBoard;
+
+    MinesweeperBoard& playerBoardRef = playerBoard;
+
+    MSBoardTextView *playerView;
+
+    //MSBoardTextView& playerViewRef = playerView;
 
 
 public:
-    //MinesweeperBoard board;
+    MSBoardTextView();
+    
     MSBoardTextView(MinesweeperBoard& board);
     
     void display();
-    ~MSBoardTextView();
+    //~MSBoardTextView();
 };
 
 #endif

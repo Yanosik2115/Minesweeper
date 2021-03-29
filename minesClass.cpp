@@ -17,7 +17,10 @@ MinesweeperBoard::MinesweeperBoard(const int &_width, const int &_height, GameMo
   }
 
 }
-
+MinesweeperBoard::MinesweeperBoard()
+{
+  
+}
 void MinesweeperBoard::getMines()  
 {
   GameMode mode = NORMAL; //Do zmiany

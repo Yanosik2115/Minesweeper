@@ -4,7 +4,6 @@
 
 MSBoardTextView::MSBoardTextView(MinesweeperBoard &board): height(board.getBoardHeight()), width(board.getBoardWidth())
 {
-    //board.hasFlag();
     
 }
 
@@ -16,7 +15,7 @@ void MSBoardTextView::display()
         {
             if(playerBoard.hasFlag(row, col))
             {
-                
+                 
             }
         }
     }

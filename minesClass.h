@@ -2,7 +2,7 @@
 
 #ifndef MINESBOARDMS_H__
 #define MINESBOARDMS_H__
- //test
+
 enum GameMode
 {
   DEBUG,
@@ -10,6 +10,7 @@ enum GameMode
   NORMAL,
   HARD
 };
+
 enum GameState
 {
   RUNNING,
@@ -34,6 +35,7 @@ class MinesweeperBoard
 
 public:
 
+  MinesweeperBoard();
   MinesweeperBoard(const int &_width, const  int &_height, GameMode mode);
   GameState getGameState(GameState state) const;
 
