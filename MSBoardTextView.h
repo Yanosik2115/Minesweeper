@@ -1,3 +1,4 @@
+#include "minesClass.h"
 #include <iostream>
 
 #ifndef MINESBOARDTX_H__
