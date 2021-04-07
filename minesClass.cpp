@@ -15,16 +15,18 @@ MinesweeperBoard::MinesweeperBoard(const int &_width, const int &_height, GameMo
       board[column][row].hasMine = false;
     }
   }
-
+  getMines(mode);
 }
+
+
 MinesweeperBoard::MinesweeperBoard()
 {
   
 }
-void MinesweeperBoard::getMines()  
-{
-  GameMode mode = NORMAL; //Do zmiany
 
+void MinesweeperBoard::getMines(GameMode mode)  
+{
+  
   srand(time(NULL));
     
     switch(mode)
@@ -40,6 +42,7 @@ void MinesweeperBoard::getMines()
           int _row = rand() % width + 1;
 
           board[_col][_row].hasMine = 1;
+          std::cout<<"działa"<<std::endl;
       }
       }
         break;
@@ -142,27 +145,26 @@ bool MinesweeperBoard::hasFlag(int row, int col) const
 }
 void MinesweeperBoard::toggleFlag(int row, int col)
 {
-  GameState state;
 
-  if(board[col][row].isRevealed==0 && state == RUNNING)
+  if(board[col][row].isRevealed==0 && getGameState() == RUNNING)
   {
     board[col][row].hasFlag = 1;
   }
 }
 
-void MinesweeperBoard::revealField(int row, int col, GameState state)
+void MinesweeperBoard::revealField(int row, int col)
 {
-  if(board[col][row].hasFlag!=1 && state == RUNNING && board[col][row].isRevealed != 1 && board[row][col].hasMine ==0)
+  if(board[col][row].hasFlag!=1 && getGameState() == RUNNING && board[col][row].isRevealed != 1 && board[row][col].hasMine ==0)
   {
     board[row][col].isRevealed = 1;
   }
-  else if(board[col][row].hasFlag!=1 && state == RUNNING && board[col][row].isRevealed != 1 && board[row][col].hasMine ==1)
+  else if(board[col][row].hasFlag!=1 && getGameState() == RUNNING && board[col][row].isRevealed != 1 && board[row][col].hasMine ==1)
   {
-    state = FINISHED_LOST;
+    GameState state = FINISHED_LOST; 
   }
 }
 
-GameState getGameState(GameState state) 
+GameState getGameState(GameState state)  
 {
   switch (state)
   {
@@ -247,5 +249,4 @@ for (int column = 0; column < height; column++)
 
 }
 
-//#endif
 

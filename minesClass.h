@@ -31,13 +31,14 @@ class MinesweeperBoard
   Field board[100][100];
   int width;
   int height;
-  
 
 public:
-
-  MinesweeperBoard();
+  
   MinesweeperBoard(const int &_width, const  int &_height, GameMode mode);
-  GameState getGameState(GameState state) const;
+  MinesweeperBoard();
+  GameState getGameState() const;
+
+  void getMines(GameMode mode);
 
   int mines_on_field;
 
@@ -51,9 +52,7 @@ public:
 
   void toggleFlag(int row, int col);
  
-  void getMines();
-
-  void revealField(int row, int col, GameState state);
+  void revealField(int row, int col);
 
   char getFieldInfo(int row, int col) const;
 

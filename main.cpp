@@ -1,5 +1,6 @@
 #include "minesClass.h"
 #include "MSBoardTextView.h"
+#include "MSTextController.h"
 #include <iostream> 
 #include <time.h>
 
@@ -8,10 +9,10 @@
 
 int main()
 {
-  MinesweeperBoard board(10, 10, GameMode::EASY);
+  MinesweeperBoard board(5, 5, GameMode::EASY);
   MSBoardTextView view( board ); //test2222
-  GameState getGameState(GameState::RUNNING);
-
+  MSTextController( board, view );
+  
   board.debug_display();
   
   std::cout << "Łukasz Waszczak, 259625\n";
