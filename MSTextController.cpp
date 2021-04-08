@@ -18,7 +18,7 @@ void MSTextController::play()
     {
         
     std::cout<<"What do you want to do?"<<std::endl;
-    std::cout<<"1:To flag field type 'F'\n2:To reveal field 'R'\n3:To check mines around type 'M'"<<std::endl;
+    std::cout<<"1:To flag field type 'F'\n2:To reveal field 'R'\n3:To check mines around field type 'M'"<<std::endl;
     std::cin>>ans;
 
     switch(ans)
