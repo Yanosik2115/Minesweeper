@@ -60,6 +60,8 @@ public:
   char getFieldInfo(int row, int col) const;
 
   void debug_display() const;
+
+  void endGame() const;
 };
 
 #endif

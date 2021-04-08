@@ -18,16 +18,19 @@ void MSBoardTextView::display()
             char res = playerBoardRef.getFieldInfo(row, col);
             std::cout<<" ";
 
-            if(&res == "x")
+            if(res == 'x')
             {
                  std::cout <<"💣" ;
             }
-            else if(&res == "F")
+            else if(res == 'F')
             {   
                 std::cout<< "⛳";
             }
-            else if(&res == "_") std::cout<<"🕳";
-            else std::cout<<" ";
+            else if(res == '_') 
+            {
+                std::cout<<"🕳";
+            }
+            else std::cout<<' ';
         }
     }
     std::cout<<std::endl;

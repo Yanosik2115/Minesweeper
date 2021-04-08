@@ -4,9 +4,6 @@
 #include <iostream> 
 #include <time.h>
 
-#ifndef MINESBOARD_H__ //test
-#define MINESBOARD_H__ //test2
-
 int main()
 {
   MinesweeperBoard board(5, 5, GameMode::EASY);
@@ -17,5 +14,3 @@ int main()
   
   std::cout << "Łukasz Waszczak, 259625\n";
 }
-
-#endif

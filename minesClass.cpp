@@ -112,8 +112,6 @@ int MinesweeperBoard::countMines(int row, int col) const
   else if (board[row - 1][col - 1].hasMine == 1)
     num++;
 
-  //std::cout<<num<<std::endl;
-
   return num;
 }
 
@@ -143,13 +141,13 @@ void MinesweeperBoard::revealField(int row, int col)
   }
   else if (board[col][row].hasFlag != 1 && getGameState() == RUNNING && board[col][row].isRevealed != 1 && board[row][col].hasMine == 1)
   {
-    GameState state = FINISHED_LOST;
+    state = FINISHED_LOST;
   }
 }
 
-GameState getGameState() const
+GameState MinesweeperBoard::getGameState() const
 {
-  
+
   return state;
 }
 
@@ -178,6 +176,19 @@ char MinesweeperBoard::getFieldInfo(int row, int col) const
   else
     return 0;
 }
+
+void MinesweeperBoard::endGame() const //do dokonczenia
+{
+  if(state == RUNNING)
+  {
+    
+  }
+  else if(state == FINISHED_LOST)
+  {
+    retunr 
+  }
+}
+
 void MinesweeperBoard::debug_display() const
 {
 

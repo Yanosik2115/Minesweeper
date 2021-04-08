@@ -14,9 +14,10 @@ class MSBoardTextView
     MinesweeperBoard& playerBoardRef = playerBoard;
     
 public:
-    MSBoardTextView();
-    
+
     MSBoardTextView(MinesweeperBoard& board);
+
+    MSBoardTextView();
 
     void display();
     
