@@ -179,13 +179,14 @@ char MinesweeperBoard::getFieldInfo(int row, int col) const
 
 void MinesweeperBoard::endGame() const //do dokonczenia
 {
-  if(state == RUNNING)
+  
+  if(state == FINISHED_LOST)
   {
-    
+    std::cout<<"You Lost :<"<<std::endl;
   }
-  else if(state == FINISHED_LOST)
+  else if(state == FINISHED_WIN)
   {
-    retunr 
+    std::cout<<"You Won :>"<<std::endl;
   }
 }
 
