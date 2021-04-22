@@ -9,9 +9,7 @@ class MSBoardTextView
     int height;
     int width;
 
-    MinesweeperBoard playerBoard;
-
-    MinesweeperBoard& playerBoardRef = playerBoard;
+    MinesweeperBoard& playerBoardRef; 
     
 public:
 

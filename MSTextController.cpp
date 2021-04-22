@@ -8,10 +8,7 @@ MSTextController::MSTextController(MinesweeperBoard &board, MSBoardTextView &vie
     height = board.getBoardHeight();
     width = board.getBoardWidth();
 }
-MSTextController::MSTextController()
-{
-    
-}
+
 void MSTextController::play()
 {
     char ans;

@@ -5,23 +5,16 @@
 class MSTextController
 {
 
-int height;
-int width;
+    int height;
+    int width;
 
-MinesweeperBoard playerBoard;
+    MinesweeperBoard &playerBoardRef;
 
-MinesweeperBoard& playerBoardRef = playerBoard;
-
-MSBoardTextView playerView;
-
-MSBoardTextView& playerViewRef = playerView;
+    MSBoardTextView &playerViewRef;
 
 public:
-
-    MSTextController(MinesweeperBoard& Board, MSBoardTextView& View);
-    MSTextController();
+    MSTextController(MinesweeperBoard &Board, MSBoardTextView &View);
+    
 
     void play();
-
 };
-
