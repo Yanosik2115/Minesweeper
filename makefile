@@ -1,5 +1,5 @@
 LIBS=-lsfml-graphics -lsfml-window -lsfml-system
-CXX := g++
+CXX := g++ -Wall
 
 all: thegame
 

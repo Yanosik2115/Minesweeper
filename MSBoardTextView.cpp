@@ -1,6 +1,5 @@
 #include "MSBoardTextView.h"
 #include "minesClass.h"
-#include <iostream>
 
 MSBoardTextView::MSBoardTextView(MinesweeperBoard &board): height(board.getBoardHeight()), width(board.getBoardWidth()),playerBoardRef(board)
 {
