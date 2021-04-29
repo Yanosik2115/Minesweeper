@@ -1,8 +1,11 @@
 #include "minesClass.h"
 #include "MSBoardTextView.h"
 #include "MSTextController.h"
+#include "MSSFMLView.h"
 #include <iostream> 
 #include <time.h>
+#include <SFML/Window.hpp>
+#include <SFML/Graphics.hpp>
 
 int main()
 {
